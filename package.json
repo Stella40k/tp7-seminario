@@ -1,0 +1,24 @@
+{
+  "name": "tp7-seminario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stella40k/tp7-seminario.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Stella40k/tp7-seminario/issues"
+  },
+  "homepage": "https://github.com/Stella40k/tp7-seminario#readme",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0"
+  }
+}
