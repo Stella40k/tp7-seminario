@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seminario</title>
+    //dependencias, importacion de librerias desde un serv externo
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.0.0/dist/tf.min.js"></script>
+    //motor, carga el motor de tf para ejecutar el modelo
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity@1.2.2"></script>
+    //modelo pre entrenado de toxicidad
+    <script>
+      //configuracion del modelo, se le pasa un umbral de 0.5 para determinar si una frase es tóxica o no
+      //el 0.5 es un valor comun para estos modelos, se ajusta segun la necesidad de presicion o sensibilidad
+      const threshold = 0.5;
+
+      //carga de modelo, proceso async
+      //espera a q el modelo se cargue por completo antes de ejecutar el bloque de codigo dentro del then ( es como un cerebro pensando)
+
+      toxicity.load(threshold).then((model) => {
+        //una basee de datos de frases en un array
+        const sentences = [
+          "You are a poopy head!",
+          "I loky turtles",
+          "Shut up!",
+        ];
+
+        //ejecucuion del modelo,se le pasa el array y se obtiene una promesa con los resultados
+        model.classify(sentences).then((predictions) => {
+          //salida del resultado por consola
+          //predictions es un array de objetos, cada objeto tiene una propiedad label
+          //(tipo de toxicidad) y results (array de booleanos indicando si cada frase es tóxica o no)
+          console.log(JSON.stringify(predictions, null, 2));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>
+      Toxicidad en el lenguaje: Un modelo de TensorFlow.js para detectar
+      comentarios ofensivos
+    </h1>
+    <p>El modelo esta pensando...</p>
+  </body>
+</html>
